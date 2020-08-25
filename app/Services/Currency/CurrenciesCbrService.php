@@ -1,15 +1,14 @@
 <?php
 
 
-namespace App\Services;
+namespace App\Services\Currency;
 
 
 use App\Currency;
 use GuzzleHttp\Client;
 
-class CurrenciesService
+class CurrenciesCbrService implements ICurrenciesService
 {
-
     private $curl;
 
     public function __construct(Client $curl) {
@@ -79,5 +78,4 @@ class CurrenciesService
         }
         app('db')->commit();
     }
-
 }

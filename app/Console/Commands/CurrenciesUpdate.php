@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Services\CurrenciesService;
+use App\Services\Currency\ICurrenciesService;
 use Illuminate\Console\Command;
 
 class CurrenciesUpdate extends Command
@@ -34,10 +34,10 @@ class CurrenciesUpdate extends Command
     /**
      * Execute the console command.
      *
-     * @param CurrenciesService $service
+     * @param ICurrenciesService $service
      * @return int
      */
-    public function handle(CurrenciesService $service)
+    public function handle(ICurrenciesService $service)
     {
         try {
             $service->updateRates();

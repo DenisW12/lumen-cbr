@@ -11,10 +11,6 @@
 |
 */
 
-$router->get('/', function (\App\Services\CurrenciesService $service) {
-    $service->updateRates();
-});
-
 $router->get('/currencies', function () {
     return \App\Currency::all();
 });
