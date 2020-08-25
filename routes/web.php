@@ -11,6 +11,13 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->get('/', function (\App\Services\CurrenciesService $service) {
+    $service->updateRates();
+});
+
+$router->get('/currencies', function () {
+    return \App\Currency::all();
+});
+$router->get('/currencies/{id}', function ($id) {
+    return \App\Currency::findOrFail($id);
 });
